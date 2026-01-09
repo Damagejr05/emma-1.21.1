@@ -1,5 +1,6 @@
 package net.damagejr05.emma;
 
+import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.damagejr05.emma.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,5 +14,6 @@ public class Emma implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
+
 	}
 }

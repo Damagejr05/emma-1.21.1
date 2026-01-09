@@ -9,15 +9,12 @@ import net.minecraft.entity.effect.StatusEffects;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.packet.s2c.play.EntityStatusEffectS2CPacket;
 
 
 public class EmmaMask extends TrinketItem {
     public EmmaMask(Settings settings) {
         super(settings);
     }
-
-
 
 
     @Override
@@ -34,13 +31,13 @@ public class EmmaMask extends TrinketItem {
         super.onUnequip(stack, slot, entity);
 
         if (!entity.getWorld().isClient && entity instanceof PlayerEntity player) {
-            player.removeStatusEffect(StatusEffects.INVISIBILITY);
-        }    }
+            TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
+                if (trinketComponent.getEquipped(ModItems.EMMA_MASK).isEmpty()){
+                    player.removeStatusEffect(StatusEffects.INVISIBILITY);
+                }
+            });
+        }}
 
-
-    public static boolean isMaskEquipped(PlayerEntity player) {
-        return TrinketsApi.getTrinketComponent(player).map(component -> component.isEquipped(ModItems.EMMA_MASK)).orElse(false);
-    }
 
 }
 
