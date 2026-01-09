@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "www.damagejr05.com",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Damagejr05/emma-1.21.1"
 	},
 	"license": "MIT",
 	"icon": "assets/emma/icon.png",
@@ -22,7 +22,7 @@
 			"net.damagejr05.emma.EmmaDataGenerator"
 		],
 		"client": [
-			"net.damagejr05.emma.EmmaModClient"
+			"net.damagejr05.emma.EmmaClient"
 		]
 	},
 	"mixins": [
