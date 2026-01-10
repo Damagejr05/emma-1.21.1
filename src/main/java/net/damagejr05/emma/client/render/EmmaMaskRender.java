@@ -50,7 +50,7 @@ public class EmmaMaskRender implements TrinketRenderer {
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(180f));
 
         //Controls the position
-        matrices.translate(0.0, 0.15, 0.3);
+        matrices.translate(0.0, 0.20, 0.3);
 
         //Controls the size
         matrices.scale(0.7f, 0.7f, 0.7f);

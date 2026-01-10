@@ -18,28 +18,17 @@ public class EmmaMask extends TrinketItem {
 
 
     @Override
-    public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        super.onEquip(stack, slot, entity);
-
-        if (!entity.getWorld().isClient && entity instanceof PlayerEntity player){
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, Integer.MAX_VALUE, 0, false, true, false));
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        super.tick(stack, slot, entity);
+    if (entity.getWorld().isClient || !(entity instanceof PlayerEntity player)){
+            return;
         }
-    }
+        TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
+            boolean wearingMask = !trinketComponent.getEquipped(ModItems.EMMA_MASK).isEmpty();
+            if (wearingMask) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20, 0, false, true, false));
+            } else {
+                player.removeStatusEffect(StatusEffects.INVISIBILITY);
+            }
 
-    @Override
-    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity){
-        super.onUnequip(stack, slot, entity);
-
-        if (!entity.getWorld().isClient && entity instanceof PlayerEntity player) {
-            TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
-                if (trinketComponent.getEquipped(ModItems.EMMA_MASK).isEmpty()){
-                    player.removeStatusEffect(StatusEffects.INVISIBILITY);
-                }
-            });
-        }}
-
-
-}
-
-
-
+        });}}
