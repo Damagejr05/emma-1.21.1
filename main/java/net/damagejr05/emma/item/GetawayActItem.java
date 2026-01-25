@@ -56,8 +56,7 @@ public class GetawayActItem extends Item {
         if (stack.isOf(ModItems.SHADOWSTEP)) {
             tooltip.add(Text.translatable("tooltip.emma.shadowstep.tooltip"));
             tooltip.add(Text.translatable("tooltip.emma.shadowstep.tooltip_1"));
-            tooltip.add(Text.translatable("tooltip.emma.variable_cooldown.tooltip").formatted(Formatting.DARK_BLUE));
-            tooltip.add(Text.translatable("tooltip.emma.variable_cooldown.tooltip_1").formatted(Formatting.DARK_BLUE));
+            tooltip.add(Text.translatable("tooltip.emma.moderate_cooldown.tooltip").formatted(Formatting.GOLD));
         }
 
         if (stack.isOf(ModItems.GRAPPLING_BLADE)) {

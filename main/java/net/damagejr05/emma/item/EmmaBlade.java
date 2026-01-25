@@ -173,6 +173,7 @@ public class EmmaBlade extends ToolItem {
             }
             ShadowstepTracker.teleport(player);
             spawnShadowstepParticles(world, player);
+            player.getItemCooldownManager().set(this, 200);
             return TypedActionResult.consume(stack);
         }
 
@@ -215,7 +216,7 @@ public class EmmaBlade extends ToolItem {
                             box,
                             entity -> entity != player && entity.isAlive()
                     ).forEach(entity -> entity.addStatusEffect(
-                            new StatusEffectInstance(StatusEffects.DARKNESS, 140, 0, false, true)
+                            new StatusEffectInstance(StatusEffects.BLINDNESS, 140, 0, false, true)
                     ));
                     player.removeStatusEffect(StatusEffects.GLOWING);
                     player.getItemCooldownManager().set(this, 200);
@@ -282,6 +283,7 @@ public class EmmaBlade extends ToolItem {
             int cooldown = usedTicks * 2;
 
             player.getItemCooldownManager().set(this, cooldown);
+            player.removeStatusEffect(StatusEffects.GLOWING);
 
             timeShooting = 0;
             isShootingALotOfSmokeParticlesAndObscuringTheUserPrettyWell = false;
