@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# a",
+    "cbc",
+    "d d"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:golden_carrot"
+    },
+    "a": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "b": {
+      "item": "minecraft:white_wool"
+    },
+    "c": {
+      "item": "minecraft:red_wool"
+    },
+    "d": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "emma:emma_mask",
+    "count": 1
+  },
+  "show_notification": false,
+
+  "conditions": [
+    {
+      "condition": "fabric:boolean_tag",
+      "tag": "emma:recipes/hidden",
+      "invert": true
+    }
+    ]
+}
