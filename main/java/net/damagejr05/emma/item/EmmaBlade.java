@@ -39,10 +39,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import org.joml.Vector3f;
 
@@ -231,6 +228,9 @@ public class EmmaBlade extends ToolItem {
                     if (anchor != null) {
                         anchor.init(player);
                         currentWorld.spawnEntity(anchor);
+                        BlockPos pos = anchor.getBlockPos();
+                        ChunkPos chunkPos = new ChunkPos(pos);
+                        currentWorld.setChunkForced(chunkPos.x, chunkPos.z, true);
                         ShadowstepTracker.set(player, anchor);
                         player.getItemCooldownManager().set(this, 20);
 

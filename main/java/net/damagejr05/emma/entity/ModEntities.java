@@ -35,7 +35,7 @@ public class ModEntities {
             Identifier.of(Emma.MOD_ID, "shadowstep_teleport_point"),
             FabricEntityTypeBuilder.<TeleportPositionEntity>create(SpawnGroup.MISC, TeleportPositionEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 2f))
-                    .trackRangeBlocks(80)
+                    .trackRangeChunks(2048)
                     .trackedUpdateRate(3)
                     .build()
     );

@@ -17,7 +17,6 @@ import org.jetbrains.annotations.Nullable;
 public class GrapplingBladeEntity extends PersistentProjectileEntity {
     public PickupPermission pickupType;
     private State state;
-    public int returnTimer;
 
     public GrapplingBladeEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
@@ -138,6 +137,8 @@ public class GrapplingBladeEntity extends PersistentProjectileEntity {
             return false;
         } else {
             this.discard();
+            GrappleTracker.clear(player);
+            player.getItemCooldownManager().set(ModItems.EMMA_BLADE, 400);
             return true;
         }
     }
