@@ -1,0 +1,37 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "emma:item/emma_blade_obscuring"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-73, -90, 45],
+			"translation": [0, 0, 1.75],
+			"scale": [1.5, 1.5, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -45],
+			"translation": [0, 0, 1.75],
+			"scale": [1.5, 1.5, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-45, -90, 45],
+			"translation": [0, -3, 3],
+			"scale": [1.5, 1.5, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-45, 90, -45],
+			"translation": [0, -3, 3],
+			"scale": [1.5, 1.5, 1]
+		},
+		"ground": {
+			"translation": [0, 4, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"on_shelf": {
+			"translation": [0, 0, -3.5]
+		}
+	}
+}

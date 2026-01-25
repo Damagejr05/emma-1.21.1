@@ -1,0 +1,46 @@
+{
+  "itemgroup.emma.emma_items": "Emma (Emma Members Only)",
+  "item.emma.emma_mask": "EMMA Mask",
+  "item.emma.emma_blade": "Blade of Emma",
+
+  "item.emma.explosive_exit": "Explosive Exit",
+  "item.emma.obscuring_haze": "Obscuring Haze",
+  "item.emma.wardens_inspiration": "Warden's Inspiration",
+  "item.emma.shadowstep": "Shadowstep",
+  "item.emma.grappling_blade": "Grappling Blade",
+
+  "tooltip.emma.getaway_plan.tooltip": "Getaway Plan",
+
+  "tooltip.emma.getaway_plan.tooltip_1": "Equips onto the Emma Blade",
+  "tooltip.emma.blank_spot.tooltip": " ",
+
+  "tooltip.emma.explosive_exit.tooltip": "Using this Plan creates an explosion",
+  "tooltip.emma.explosive_exit.tooltip_1": "that launches away all entities.",
+
+  "tooltip.emma.obscuring_haze.tooltip": "Using this Plan releases Smoke",
+  "tooltip.emma.obscuring_haze.tooltip_1": "particles from the front of the",
+  "tooltip.emma.obscuring_haze.tooltip_2": "blade, and clears Glowing effects.",
+
+  "tooltip.emma.wardens_inspiration.tooltip": "Using this Plan gives all nearby",
+  "tooltip.emma.wardens_inspiration.tooltip_1": "combatants a Darkness effect, and",
+  "tooltip.emma.wardens_inspiration.tooltip_2": "clears Glowing effects from you.",
+
+  "tooltip.emma.shadowstep.tooltip": "Using this Plan teleports you",
+  "tooltip.emma.shadowstep.tooltip_1": "up to 20 blocks ahead of you.",
+
+  "tooltip.emma.grappling_blade.tooltip": "Using this Plan shoots the blade",
+  "tooltip.emma.grappling_blade.tooltip_1": "off the pole. Using it again reels",
+  "tooltip.emma.grappling_blade.tooltip_2": "you to the location of the blade.",
+
+  "tooltip.emma.short_cooldown.tooltip": "Has a Short cooldown",
+  "tooltip.emma.moderate_cooldown.tooltip": "Has a Moderate cooldown",
+  "tooltip.emma.long_cooldown.tooltip": "Has a Long cooldown",
+  "tooltip.emma.variable_cooldown.tooltip": "Cooldown Increases by",
+  "tooltip.emma.variable_cooldown.tooltip_1": "its duration used!",
+
+  "tooltip.emma.requires_getaway_plan.tooltip": "Insert a Getaway Plan",
+  "tooltip.emma.requires_getaway_plan.tooltip_1": "for additional effects!",
+
+  "death.attack.emma_strike": "%1$s was taken care of by an implement of Emma",
+  "death.attack.emma_strike.player": "%1$s was taken care of by an implement of Emma"
+}

@@ -27,6 +27,21 @@ fabricApi {
 	}
 }
 
+loom {
+	runs {
+		client1 {
+			client()
+			ideConfigGenerated(true)
+			runDir("run1")
+		}
+		client2 {
+			client()
+			ideConfigGenerated(true)
+			runDir("run2")
+		}
+	}
+}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"

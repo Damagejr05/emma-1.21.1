@@ -1,0 +1,27 @@
+{
+
+  "invisibility_trigger": {
+    "subtitle": "sounds.emma.invisibility_trigger",
+    "sounds": [
+      "emma:invisibility_trigger"
+    ]
+  },
+  "invisibility_end": {
+    "subtitle": "sounds.emma.invisibility_end",
+    "sounds": [
+      "emma:invisibility_end"
+    ]
+  },
+  "smoke_bomb_throw": {
+    "subtitle": "sounds.emma.smoke_bomb_throw",
+    "sounds": [
+      "emma:smoke_bomb_throw"
+    ]
+  },
+  "smoke_bomb_explode": {
+    "subtitle": "sounds.emma.smoke_bomb_explode",
+    "sounds": [
+      "emma:smoke_bomb_explode"
+    ]
+  }
+}
