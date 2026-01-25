@@ -31,6 +31,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -80,17 +81,29 @@ public class EmmaBlade extends ToolItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = attacker.getWorld();
+        world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).get(EMMA_STRIKE);
 
-        DamageSource source = world.getDamageSources()
-                .create(EMMA_STRIKE, attacker);
+        RegistryEntry<DamageType> entry = world.getRegistryManager()
+                .get(RegistryKeys.DAMAGE_TYPE)
+                .getEntry(EMMA_STRIKE)
+                .orElseThrow();
 
-        target.damage(source, this.attackDamage);
+        DamageSource src = new DamageSource(entry);
+        target.damage(src, this.attackDamage);
         return true;
     }
 
-
+    @Override
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damage(1, attacker, EquipmentSlot.MAINHAND);
+        World world = attacker.getWorld();
+
+        RegistryEntry<DamageType> entry = world.getRegistryManager()
+                .get(RegistryKeys.DAMAGE_TYPE)
+                .getEntry(EMMA_STRIKE)
+                .orElseThrow();
+
+        DamageSource src = new DamageSource(entry);
+        target.damage(src, this.attackDamage);
     }
 
     //emma spear use logic
@@ -208,7 +221,7 @@ public class EmmaBlade extends ToolItem {
                             new StatusEffectInstance(StatusEffects.DARKNESS, 140, 0, false, true)
                     ));
                     player.removeStatusEffect(StatusEffects.GLOWING);
-                    player.getItemCooldownManager().set(this, 25);
+                    player.getItemCooldownManager().set(this, 200);
                 }
             }
             else if (GetawayPlanHelper.hasGetawayPlan(stack, ModItems.SHADOWSTEP)) {

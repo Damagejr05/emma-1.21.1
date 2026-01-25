@@ -39,5 +39,8 @@
   "tooltip.emma.variable_cooldown.tooltip_1": "its duration used!",
 
   "tooltip.emma.requires_getaway_plan.tooltip": "Insert a Getaway Plan",
-  "tooltip.emma.requires_getaway_plan.tooltip_1": "for additional effects!"
+  "tooltip.emma.requires_getaway_plan.tooltip_1": "for additional effects!",
+
+  "death.attack.emma_strike": "%1$s was taken care of by an implement of Emma",
+  "death.attack.emma_strike.player": "%1$s was taken care of by an implement of Emma"
 }
