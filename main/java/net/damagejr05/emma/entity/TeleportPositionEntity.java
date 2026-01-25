@@ -13,6 +13,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,6 +26,7 @@ public class TeleportPositionEntity extends Entity implements Attackable {
     private static final float MAX_HEALTH = 20f;
     private float health = MAX_HEALTH;
     private int hurtTime = 0;
+    private ChunkPos forcedChunk;
 
     @Nullable
     private UUID owner;
@@ -49,21 +51,22 @@ public class TeleportPositionEntity extends Entity implements Attackable {
         return this.dataTracker.get(REMAINING_TICKS);
     }
 
-    @Override
-    public void tick() {
+    @Override public void tick() {
         super.tick();
 
         if (this.getWorld().isClient) return;
 
+        if (forcedChunk == null && this.getWorld() instanceof ServerWorld serverWorld) {
+            forcedChunk = new ChunkPos(this.getBlockPos()); serverWorld.setChunkForced(forcedChunk.x, forcedChunk.z, true);
+        }
+
         remainingTicks--;
+
         this.dataTracker.set(REMAINING_TICKS, remainingTicks);
 
         if (hurtTime > 0) hurtTime--;
 
-        spawnParticles();
-
-        if (remainingTicks <= 0) {
-            discardAndClear();
+        spawnParticles(); if (remainingTicks <= 0) { discardAndClear();
         }
     }
 
@@ -158,18 +161,20 @@ public class TeleportPositionEntity extends Entity implements Attackable {
     }
 
     private void discardAndClear() {
+        if (this.getWorld() instanceof ServerWorld serverWorld && forcedChunk != null) {
+            serverWorld.setChunkForced(forcedChunk.x, forcedChunk.z, false);
+        }
+
         this.remove(RemovalReason.DISCARDED);
 
         if (owner == null) return;
-        if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
 
-        PlayerEntity player = serverWorld.getPlayerByUuid(owner);
+        PlayerEntity player = this.getWorld().getPlayerByUuid(owner);
         if (player == null) return;
 
         ShadowstepTracker.clear(owner);
         player.getItemCooldownManager().set(ModItems.EMMA_BLADE, 20);
     }
-
 
     @Override
     protected void writeCustomDataToNbt(NbtCompound nbt) {
