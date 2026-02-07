@@ -3,7 +3,8 @@
 	"package": "net.damagejr05.emma.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"DamageSourceMixin"
+		"DamageSourceMixin",
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,6 +1,0 @@
-{
-  "parent": "emma:item/emma_blade",
-  "textures": {
-    "layer0": "emma:item/emma_blade_explosive"
-  }
-}
