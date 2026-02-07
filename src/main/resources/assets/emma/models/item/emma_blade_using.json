@@ -1,0 +1,47 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "emma:item/emma_blade_obscuring"
+	},
+	"overrides": [
+		{"predicate": {"emma:explosive_exit": 1}, "model": "emma:item/emma_blade_explosive"},
+		{"predicate": {"emma:obscuring_haze": 1}, "model": "emma:item/emma_blade_obscuring"},
+		{"predicate": {"emma:pulling": 1}, "model": "emma:item/emma_blade_using"},
+		{"predicate": {"emma:wardens_inspiration": 1}, "model": "emma:item/emma_blade_wardens"},
+		{"predicate": {"emma:shadowstep": 1}, "model": "emma:item/emma_blade_shadowstep"},
+		{"predicate": {"emma:shadowstep_active": 1}, "model": "emma:item/emma_blade_shadowstep_active"},
+		{"predicate": {"emma:grappling_blade": 1}, "model": "emma:item/emma_blade_grappling"},
+		{"predicate": {"emma:grapple_fired": 1}, "model": "emma:item/emma_blade_empty"}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-75, -90, 45],
+			"translation": [0, 0, 1.75],
+			"scale": [1.5, 1.5, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-75, 90, -45],
+			"translation": [0, 0, 1.75],
+			"scale": [1.5, 1.5, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-45, -90, 45],
+			"translation": [0, -3, 3],
+			"scale": [1.5, 1.5, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-45, 90, -45],
+			"translation": [0, -3, 3],
+			"scale": [1.5, 1.5, 1]
+		},
+		"ground": {
+			"translation": [0, 4, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"on_shelf": {
+			"translation": [0, 0, -3.5]
+		}
+	}
+}
